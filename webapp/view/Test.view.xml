@@ -1,0 +1,74 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="project1.controller.Test"
+    displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" showHeader="true" title="{i18n>title}">
+
+        <customHeader>
+            <Toolbar>
+                <Button text="{i18n>registerButton}" press="onPressRegister" type="Accept"/>
+                <Button text="{i18n>loginButton}" press="onPressLogin" type="Reject"/>
+                <Button text="{= 'Usuarios registrados: ' + ${sharedModel>/usersC}}" press="onPressBtnUsuarios"/>
+            </Toolbar>
+        </customHeader>
+
+        <content>
+            <!-- Register Box -->
+            <VBox id="registerBox" visible="{/showR}" alignItems="Center" justifyContent="Center" height="100%">
+                <Toolbar>
+                    <ToolbarSpacer/>
+                    <Title text="{i18n>registerPage}" level="H3"/>
+                    <ToolbarSpacer/>
+                </Toolbar>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <form:SimpleForm>
+                        <Title text="{i18n>usernameText}" />
+                        <Input placeholder="{i18n>usernamePlaceHolder}" value="{/register/username}"/>
+                    </form:SimpleForm>
+                </HBox>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <form:SimpleForm>
+                        <Title text="{i18n>passwordText}" />
+                        <Input placeholder="{i18n>passwordPlaceHolder}" type="Password" value="{/register/password}"/>
+                        <Input placeholder="{i18n>passwordPlaceHolderC}" type="Password" value="{/register/passwordC}" />
+                    </form:SimpleForm>
+                </HBox>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <Button text="{i18n>registerButton}" press="onPressBtnRegister"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Login Box -->
+            <VBox id="loginBox" visible="{/showL}" alignItems="Center" justifyContent="Center" height="100%">
+                <Toolbar>
+                    <ToolbarSpacer/>
+                    <Title text="{i18n>loginPage}" level="H3"/>
+                    <ToolbarSpacer/>
+                </Toolbar>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <form:SimpleForm>
+                        <Title text="{i18n>usernameText}"/>
+                        <Input placeholder="{i18n>usernameL}" value="{/login/username}"/>
+                    </form:SimpleForm>
+                </HBox>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <form:SimpleForm>
+                        <Title text="{i18n>passwordText}" />
+                        <Input placeholder="{i18n>passwordL}" type="Password" value="{/login/password}"/>
+                    </form:SimpleForm>
+                </HBox>
+                <HBox justifyContent="Center" alignItems="Center">
+                    <Button text="{i18n>loginButton}" press="onPressBtnLogin"/>
+                </HBox>
+            </VBox>
+        </content>
+        <footer>
+        	<Toolbar>
+            <ToolbarSpacer/>
+            <Title text="S.A. Nashe"/>
+			</Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

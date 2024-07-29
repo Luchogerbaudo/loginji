@@ -1,0 +1,40 @@
+<mvc:View
+    controllerName="project1.controller.UserList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="UserList" showHeader="true">
+        <customHeader>
+            <Toolbar>
+                <Button text="Ir a inicio" press="onPressBtnInicio"/>
+            </Toolbar>
+        </customHeader>
+        <content>
+            <OverflowToolbar>
+                <Title text= "Usuarios registrados: {sharedModel>/usersC}"/>
+            </OverflowToolbar>
+            <OverflowToolbar>
+                <SearchField liveChange="onChangeSearch" width="100%"/>
+            </OverflowToolbar>
+            <HBox justifyContent="Center" alignItems="Center">
+                <Table id="userTable" items="{sharedModel>/users}" width="100%">
+                    <columns>
+                        <Column>
+                            <Text text="Usuario"/>
+                        </Column>
+                        <Column>
+                            <Text text="Contraseña"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Button text="{sharedModel>username}" press="onPressRegistro"/>
+                                <Text text="{sharedModel>password}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </HBox>
+        </content>
+    </Page>
+</mvc:View>
